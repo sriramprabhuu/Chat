@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="websriram/" kind="src" path="SRC"/>
+	<classpathentry kind="lib" path="C:/j2sdk1.4.2_06/lib/tools.jar"/>
+	<classpathentry kind="lib" path="C:/j2sdk1.4.2_06/jre/lib/rt.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="lib/commons-configuration-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-digester.jar"/>
+	<classpathentry kind="lib" path="lib/commons-discovery.jar"/>
+	<classpathentry kind="lib" path="lib/commons-el.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-services.jar"/>
+	<classpathentry kind="lib" path="lib/jasper-runtime.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="lib/jboss.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-common.jar"/>
+	<classpathentry kind="lib" path="lib/struts.jar"/>
+	<classpathentry kind="lib" path="lib/servlet.jar"/>
+	<classpathentry kind="lib" path="D:/jboss-3.2.6/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="D:/jboss-3.2.6/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/jboss-3.2.6/lib/jboss-j2ee.jar"/>
+	<classpathentry kind="output" path="output/classes"/>
+</classpath>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "tiles-config_1_1.dtd">
+<tiles-definitions>
+	<definition name="tileWindow" page="/LayoutForTiles.jsp">
+		<put name="left" value="/Left.jsp" />
+		<put name="right" value="/Right.jsp" />
+	</definition>
+	<definition name="ChatPage" page="/LayoutForTiles.jsp">
+		<put name="left" value="/ChatPage.jsp" />
+		<put name="right" value="/ActiveUsers.jsp" />
+	</definition>	
+	</tiles-definitions>
+

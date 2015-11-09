@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="FormBean" type="ch.com.sample.FormBean" />
+		
+		<form-bean name="DynamicFormBean" type="org.apache.struts.action.DynaActionForm" >
+		<form-property name="keyyy" type="java.lang.String"/>
+		<form-property name="valueee" type="java.lang.String"/>
+		<form-property name="chatTextArea" type="java.lang.String"/>
+		</form-bean>
+	</form-beans>
+	<global-exceptions>
+		<exception key="gp.error.keyerror" type="java.lang.NullPointerException"
+			scope="request" path="/ChatLogin.jsp" />
+		<exception key="gp.error.keyerror" type="java.lang.Exception"
+			scope="request" path="/ChatLogin.jsp" />
+	</global-exceptions>
+
+	<global-forwards>
+	<forward name="Login" path="/Login.go" />
+	</global-forwards>
+	
+	<action-mappings>
+		<action path="/Change" type="ch.com.sample.Sample"
+			parameter="method" name="FormBean" scope="request" input="Change">
+			<forward name="go" path="/Login.jsp" />
+			<forward name="tileWindow" path="tileWindow" />
+			<forward name="chatWindow" path="ChatPage" />
+		</action>
+
+		<action path="/Login" type="ch.com.sample.Login"
+			parameter="method" name="FormBean" scope="request" input="Change">
+			<forward name="go" path="/ChatLogin.jsp" />
+			<forward name="duplicateUser" path="/Error.jsp" />
+		</action>
+
+		<action path="/backToForm" type="ch.com.sample.Sample"
+		parameter="method" name="DynamicFormBean" scope="request" input="backToForm">
+		<forward name="go" path="/Login.jsp" />
+		<forward name="error" path="/Dummy.jsp" />
+		<forward name="popup" path="/Popup.jsp" />
+		</action>
+		
+		<action path="/chatWindow" type="ch.com.sample.Sample"
+		parameter="method" name="FormBean" scope="request" input="backToForm">
+		<forward name="go" path="/Login.jsp" />
+		<forward name="error" path="/Dummy.jsp" />
+		<forward name="popup" path="/Popup.jsp" />
+		<forward name="chatLogin" path="/ChatLogin.jsp" />
+		</action>
+	</action-mappings>
+	<!--<message-resources parameter="resources.ApplicationResources" />
+		<message-resources factory="ch.admin.bvet.infrastructure.resourcemanager.DBMessageResourcesFactory" parameter="DBMessageResources" />-->
+		<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		
+		<set-property property="definitions-config"
+		value="/WEB-INF/tiles-defs.xml" />
+		
+		<set-property property="moduleAware" value="true" />
+		</plug-in>
+		<!--
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+		</plug-in>-->
+</struts-config>

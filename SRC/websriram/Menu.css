@@ -1,0 +1,118 @@
+		
+			
+			table.menu{
+				width: 170px;
+				height: 100%;
+				margin: 0px 0px 0px 0px;
+				border: solid 1px #D8DAE6;
+				border-width: 1px 0px 0px 0px;
+				background-image: url(Img/MenuBg.gif);
+				background-repeat: repeat-y;
+				background-position: left top;
+			}
+			
+			table.menu tr td{
+				vertical-align: text-top;
+				line-height: 18px;
+				}
+				
+				
+			
+				
+			.menu div a { text-decoration: none; width: 100%; height: 100%; padding-left: 10px; color: #25252B;}
+			.menu div A:link{font-weight: normal; text-decoration: none; padding-left: 10px; color: #25252B;}
+			.menu div A:visited{ font-weight: normal; text-decoration: none; padding-left: 10px; color: #25252B;}
+			.menu div A:hover{font-weight: normal; text-decoration: none; color: #000085; padding-left: 10px; }
+			.menu div A:active{font-weight: bold; text-decoration: none; padding-left: 10px; color: #25252B;}
+				
+			div.active a:link, div.active a:visited, div.active a:hover, div.active a:active  {
+			color: white;
+			font-weight: bold;
+			}
+			
+
+			div.level1 div.active a:link, div.level1 div.active a:visited, div.level1 div.active a:hover, div.level1 div.active a:active {
+			color: white;
+			font-weight: bold;
+			}
+			
+
+			div.open a:link, div.open a:active, div.open a:visited {
+			color: #383A46;
+			font-weight: bold;
+			}
+				
+			/*--------------------------------------------------------------*/	
+				
+			div.active, div.open, div.inactive, div.closed {
+			height: 22px;
+			width: 170px;
+			margin: 0px 0px 0px 0px;
+			padding: 0px 0px 0px 0px;
+			}
+
+			div.active {
+			background-image: url(Img/MenuActive.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.open {
+			background-image: url(Img/Menu.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.level1 div.open {
+			background-image: url(Img/SubMenu.gif);
+			background-repeat: repeat-x;
+			}
+			
+			div.level2 div.open {
+			background-image: url(Img/SubMenu.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.inactive, div.closed {
+			background-image: url(Img/Menu.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.level1 div.inactive, div.level1 div.closed {
+			background-image: url(Img/SubMenu.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.level1 div.active {
+			background-image: url(Img/SubMenuActive.gif);
+			background-repeat: repeat-x;
+			border-width: 0px 0px 0px 0px;
+			}
+			
+			div.level2 div.inactive, div.level2 div.closed {
+			background-image: url(Img/SubSubMenu.gif);
+			background-repeat: repeat-x;
+			}
+
+			div.level2 div.active {
+			background-image: url(Img/SubMenuActive.gif);
+			background-repeat: repeat-x;
+			border-width: 0px 0px 0px 0px;
+			}
+
+			div.open a:hover, div.inactive a:hover, div.closed a:hover{
+			color: #000085;
+			}
+			div.level1 div.open a:hover, div.level1 div.inactive a:hover, div.level1 div.closed a:hover
+			{
+			color: #000085;
+			} 
+
+			#CaritorLogo2 {vertical-align: text-bottom;}
+			
+			tr#CaritorLogo2 td {height: 55px; width: 170px;}
+
+			tr#CaritorLogo2 td A:link { padding: 0px 0px 0px 0px;}
+			tr#CaritorLogo2 td A:visited { padding: 0px 0px 0px 0px;}
+			tr#CaritorLogo2 td A:active { padding: 0px 0px 0px 0px;}
+			tr#CaritorLogo2 td A:hover { padding: 0px 0px 0px 0px;}
+			
+			#Version {height: 22px; padding-left: 12px; color: #25252B; width: 158px; }

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<project name="sriram" default="driver" basedir="../..">
+	<property name="jboss.bundle.dir" value="d:jboss-3.2.6"/>
+	<property name="src.dir" value="${basedir}/SRC" />
+	<property name="build.dir" value="${basedir}/output" />
+	<property name="build.lib.dir" value="${build.dir}/lib" />
+	<property name="build.deploy.dir" value="${build.dir}/deploysriram" />
+	<property name="build.classes.dir" value="${build.dir}/classes" />
+	<property name="jboss.dist.dir" value="${jboss.bundle.dir}" />
+	<property name="jboss.default.dir" value="${jboss.dist.dir}/server/default" />
+	<property name="jboss.deploy.dir" value="${jboss.default.dir}/deploy" />
+	<property name="jboss.client.dir" value="${jboss.dist.dir}/client" />
+	<property name="base.lib.dir" value="${jboss.bundle.dir}/lib" />
+	<property name="default.lib.dir" value="${jboss.default.dir}/lib" />
+	
+	<path id="build.classpath">
+		<pathelement location="${default.lib.dir}/jboss-j2ee.jar"/>
+		<pathelement location="${default.lib.dir}/servlet-api.jar" />
+		<pathelement location="${default.lib.dir}/jboss.jar" />
+		<pathelement location="${default.lib.dir}/struts.jar" />
+		<pathelement location="${default.lib.dir}/jsp-api.jar" />
+		<pathelement location="${default.lib.dir}/servlet.jar" />
+		<pathelement location="${default.lib.dir}/commons-configuration-1.2.jar" />
+		<pathelement location="${default.lib.dir}/jsp-api.jar" />
+		<pathelement location="${build.classes.dir}" />
+	</path>
+
+	<path id="client.classpath">
+		<pathelement location="${default.lib.dir}/jboss-j2ee.jar" />
+		<pathelement location="${basedir}/src" />
+	</path>
+	
+	<target name="delete old files">
+			<echo message="Into delete target"></echo>
+			<delete dir="${build.dir}"></delete>
+			<delete file="${jboss.deploy.dir}/Sriram'sChat.war"></delete>
+		</target>
+
+	<target name="create directories" depends="delete old files">
+		<echo message="Into prepare target"></echo>
+		<mkdir dir="${base.lib.dir}"/>
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes.dir}"/>
+		<mkdir dir="${build.deploy.dir}"/>
+	</target>
+
+	<target name="compile files" depends="create directories">
+		<echo message="Into compile target"></echo>
+		<javac srcdir="${src.dir}" destdir="${build.classes.dir}" classpathref="build.classpath" debug="on" deprecation="off" optimize="off" />
+	</target>
+
+	<target name="driver" depends="compile files">
+		<echo message="Into driver target"></echo>
+		<copy file="SRC/roles.properties"
+		     		tofile="${build.classes.dir}/roles.properties" />	
+		<copy file="SRC/users.properties"
+		     		tofile="${build.classes.dir}/users.properties" />
+		<jar jarfile="${build.deploy.dir}/sriram-classes-pureJava.jar" basedir="${build.classes.dir}">
+			<include name="ch/**/*.class"/>
+		</jar>
+
+		<war warfile="${build.deploy.dir}/Sriram'sChat.war" webxml="SRC/websriram/WEB-INF/web.xml">
+			<webinf dir="SRC/websriram/WEB-INF">
+				<include name="*.*"/>
+			</webinf>
+
+			<fileset dir="${build.deploy.dir}" includes="*.jar" />
+
+			<fileset dir="SRC/websriram">
+			  <include name="*.*" /> 
+			  </fileset>
+			<classes dir="${build.classes.dir}">
+			  <include name="ch/**/*.class" /> 
+				<include name="*.properties"/>
+			  </classes>
+		</war>
+		<copy file="${build.deploy.dir}/Sriram'sChat.war" todir="${jboss.bundle.dir}/server/default/deploy" /> 
+	</target>
+	
+</project>
